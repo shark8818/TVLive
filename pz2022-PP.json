@@ -7,9 +7,9 @@
 //jar（爬虫）
 
 
-"spider":"https://agit.ai/yan/Tes/raw/branch/master/Jar1216.jar;md5;8fa345232bd9e99c882e9973f0429150
+"spider":"https://github.com/shark8818/TVLive/blob/main/Jar1216.jar;md5;8fa345232bd9e99c882e9973f0429150
 ",
-//"spider":"https://gitee.com/yan330/yan/raw/master/jar0928.jar;md5;5853cbccc5d15b3285ff9fb0f26049e1",
+//"spider":"https://github.com/shark8818/TVLive/blob/main/Jar1216.jar;md5;5853cbccc5d15b3285ff9fb0f26049e1",
 
 
 //壁纸
@@ -18,7 +18,7 @@
 
 
 //电视直播
-"lives": [{"group": "redirect","channels": [{"name": "live","urls": ["proxy://do=live&type=txt&ext=aHR0cHM6Ly9hZ2l0LmFpL3lhbi9UZXMvcmF3L2JyYW5jaC9tYXN0ZXIvVFZsaXZlLVBQLnR4dA=="]}]}],
+"lives": [{"group": "redirect","channels": [{"name": "live","urls": ["proxy://do=live&type=txt&ext=aHR0cHM6Ly9naXRodWIuY29tL3NoYXJrODgxOC9UVkxpdmUvYmxvYi9tYWluL1RWbGl2ZS50eHQ="]}]}],
 
 
 
