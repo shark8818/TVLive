@@ -1,0 +1,517 @@
+---
+mixed-port: 7893
+tcp-concurrent: false
+allow-lan: true
+ipv6: false
+mode: rule
+log-level: info
+global-client-fingerprint: chrome
+find-process-mode: strict
+external-controller: 0.0.0.0:9090
+geodata-mode: true
+geo-auto-update: true
+geo-update-interval: 3
+geox-url:
+  geoip: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat
+  geosite: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
+  mmdb: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb
+  asn: https://mirror.ghproxy.com/https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb
+profile:
+  store-selected: true
+  store-fake-ip: true
+sniffer:
+  enable: true
+  parse-pure-ip: true
+  sniff:
+    HTTP:
+      ports:
+      - 80
+      - 8080-8800
+      override-destination: true
+    TLS:
+      ports:
+      - 443
+      - 8443
+    QUIC:
+      ports:
+      - 443
+      - 8443
+  skip-domain:
+  - Mijia Cloud
+  - dlg.io.mi.com
+  - "+.apple.com"
+dns:
+  enable: true
+  ipv6: false
+  prefer-h3: true
+  listen: 0.0.0.0:7874
+  enhanced-mode: redir-host
+  fake-ip-filter:
+  - "*.lan"
+  - cable.auth.com
+  - "+.msftconnecttest.com"
+  - "+.msftncsi.com"
+  - network-test.debian.org
+  - detectportal.firefox.com
+  - resolver1.opendns.com
+  - "+.srv.nintendo.net"
+  - "+.stun.playstation.net"
+  - xbox.*.microsoft.com
+  - "+.xboxlive.com"
+  - stun.*
+  - global.turn.twilio.com
+  - global.stun.twilio.com
+  - localhost.*.qq.com
+  - "+.logon.battlenet.com.cn"
+  - "+.logon.battle.net"
+  - "+.blzstatic.cn"
+  - "+.cmpassport.com"
+  - id6.me
+  - open.e.189.cn
+  - mdn.open.wo.cn
+  - opencloud.wostore.cn
+  - auth.wosms.cn
+  - "+.jegotrip.com.cn"
+  - "+.icitymobile.mobi"
+  - "+.pingan.com.cn"
+  - "+.cmbchina.com"
+  - "+.cmbchina.com.cn"
+  - pool.ntp.org
+  - "+.pool.ntp.org"
+  - ntp.*.com
+  - time.*.com
+  - ntp?.*.com
+  - time?.*.com
+  - time.*.gov
+  - time.*.edu.cn
+  - "+.ntp.org.cn"
+  - time.*.apple.com
+  default-nameserver:
+  - 223.5.5.5
+  - 119.29.29.29
+  nameserver-policy:
+    www.baidu.com: 114.114.114.114
+    "+.internal.crop.com": 10.0.0.1
+    www.baidu.com,+.google.cn: https://doh.pub/dns-query
+    geosite:private,apple: https://dns.alidns.com/dns-query
+    rule-set:google: 8.8.8.8
+  nameserver:
+  - https://doh.pub/dns-query
+  - https://dns.alidns.com/dns-query
+  fallback:
+  - https://1.1.1.2/dns-query
+  - https://1.0.0.2/dns-query
+  - https://208.67.222.222/dns-query
+  - https://208.67.220.220/dns-query
+  - https://9.9.9.9/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    geosite:
+    - gfw
+    ipcidr:
+    - 240.0.0.0/4
+    - 0.0.0.0/32
+    domain:
+    - "+.google.com"
+    - "+.github.com"
+    - "+.facebook.com"
+    - "+.twitter.com"
+    - "+.youtube.com"
+    - "+.google.cn"
+    - "+.googleapis.cn"
+    - "+.googleapis.com"
+proxies:
+- name: 香港盈科
+  server: 112.120.250.175
+  port: 44333
+  client-fingerprint: chrome
+  type: vless
+  uuid: 2cd6ed0f-636e-4e6c-9449-5a263d7a0fa5
+  tls: true
+  tfo: false
+  servername: cfed.tgzdyz2.top
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: tg@zdyz2
+    headers:
+      Host: cfed.tgzdyz2.top
+  udp: true
+
+- name: 香港阿里云
+  server: 47.76.146.1
+  port: 2096
+  client-fingerprint: chrome
+  type: vless
+  uuid: 2cd6ed0f-636e-4e6c-9449-5a263d7a0fa5
+  tls: true
+  tfo: false
+  servername: cfed.tgzdyz2.top
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: "/tg@zdyz2"
+    headers:
+      Host: cfed.tgzdyz2.top
+  udp: true
+
+- name: 香港腾讯云1
+  server: 119.28.189.227
+  port: 32079
+  client-fingerprint: chrome
+  type: vless
+  uuid: 2cd6ed0f-636e-4e6c-9449-5a263d7a0fa5
+  tls: true
+  tfo: false
+  servername: cfed.tgzdyz2.top
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: tg@zdyz2
+    headers:
+      Host: cfed.tgzdyz2.top
+  udp: true
+
+- name: 香港腾讯云2
+  server: 43.155.22.176
+  port: 443
+  client-fingerprint: chrome
+  type: vless
+  uuid: 2cd6ed0f-636e-4e6c-9449-5a263d7a0fa5
+  tls: true
+  tfo: false
+  servername: cfed.tgzdyz2.top
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: "/tg@zdyz2"
+    headers:
+      Host: cfed.tgzdyz2.top
+  udp: true
+
+- name: 日本1-4k
+  server: 222.113.18.206
+  port: 38961
+  client-fingerprint: chrome
+  type: vless
+  uuid: 2cd6ed0f-636e-4e6c-9449-5a263d7a0fa5
+  tls: true
+  tfo: false
+  servername: cfed.tgzdyz2.top
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: "/tg@zdyz2"
+    headers:
+      Host: cfed.tgzdyz2.top
+  udp: true
+
+- name: 日本2-4k
+  server: 222.113.18.205
+  port: 38749
+  client-fingerprint: chrome
+  type: vless
+  uuid: 2cd6ed0f-636e-4e6c-9449-5a263d7a0fa5
+  tls: true
+  tfo: false
+  servername: cfed.tgzdyz2.top
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: "/tg@zdyz2"
+    headers:
+      Host: cfed.tgzdyz2.top
+  udp: true
+
+- name: 韩国1-4k
+  server: 15.165.49.161
+  port: 8080
+  client-fingerprint: chrome
+  type: vless
+  uuid: 2cd6ed0f-636e-4e6c-9449-5a263d7a0fa5
+  tls: true
+  tfo: false
+  servername: cfed.tgzdyz2.top
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: "/tg@zdyz2"
+    headers:
+      Host: cfed.tgzdyz2.top
+  udp: true
+
+- name: 新加坡1
+  server: 45.8.211.95
+  port: 443
+  client-fingerprint: chrome
+  type: vless
+  uuid: 2cd6ed0f-636e-4e6c-9449-5a263d7a0fa5
+  tls: true
+  tfo: false
+  servername: cfed.tgzdyz2.top
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: tg@zdyz2
+    headers:
+      Host: cfed.tgzdyz2.top
+  udp: true
+
+- name: 新加坡2
+  server: 27.50.48.108
+  port: 443
+  client-fingerprint: chrome
+  type: vless
+  uuid: 2cd6ed0f-636e-4e6c-9449-5a263d7a0fa5
+  tls: true
+  tfo: false
+  servername: cfed.tgzdyz2.top
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: tg@zdyz2
+    headers:
+      Host: cfed.tgzdyz2.top
+  udp: true
+
+- name: 新加坡3
+  server: 27.50.48.250
+  port: 2096
+  client-fingerprint: chrome
+  type: vless
+  uuid: 678ac895-92c2-4f27-a9d4-f1a89c5f5365
+  tls: true
+  tfo: false
+  servername: mositr.freenods.sbs
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: twitterfreecodes
+    headers:
+      Host: mositr.freenods.sbs
+  udp: true
+
+- name: 美国芝加哥1
+  server: 204.93.210.185
+  port: 8443
+  client-fingerprint: chrome
+  type: vless
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  tls: true
+  tfo: false
+  servername: a.ssll.gay
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: twitterfreecodes
+    headers:
+      Host: a.ssll.gay
+  udp: true
+
+- name: 法国1-4k
+  server: 194.24.161.146
+  port: 4090
+  client-fingerprint: chrome
+  type: vless
+  uuid: 2cd6ed0f-636e-4e6c-9449-5a263d7a0fa5
+  tls: true
+  tfo: false
+  servername: cfed.tgzdyz2.top
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: tg@zdyz2
+    headers:
+      Host: cfed.tgzdyz2.top
+  udp: true
+
+proxy-groups:
+- name: PROXY
+  type: select
+  proxies:
+  - LOAD-BALANCE
+  - 🔰 节点选择
+  - FALLBACK
+  - DIRECT
+
+- name: 🔰 节点选择
+  type: select
+  proxies: &1
+  - 香港盈科
+  - 香港阿里云
+  - 香港腾讯云1
+  - 香港腾讯云2
+  - 日本1-4k
+  - 日本2-4k
+  - 韩国1-4k
+  - 新加坡1
+  - 新加坡2
+  - 新加坡3
+  - 美国芝加哥1
+  - 法国1-4k
+
+- name: LOAD-BALANCE
+  type: load-balance
+  url: https://cp.cloudflare.com/generate_204
+  interval: 3600
+  strategy: consistent-hashing
+  proxies: *1
+
+- name: FALLBACK
+  type: fallback
+  url: https://cp.cloudflare.com/generate_204
+  interval: 3600
+  proxies: *1
+- name: GITHUB
+  type: select
+  proxies: &2
+  - PROXY
+  - LOAD-BALANCE
+  - 🔰 节点选择
+  - FALLBACK
+  - DIRECT
+
+- name: OPENAI
+  type: select
+  proxies: *2
+- name: BLOCK
+  type: select
+  proxies:
+  - REJECT
+  - DIRECT
+
+- name: FINAL
+  type: select
+  proxies:
+  - PROXY
+  - DIRECT
+
+rules:
+- DST-PORT,7895,REJECT
+- DST-PORT,7892,REJECT
+- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+- DST-PORT,7895,REJECT
+- DST-PORT,7892,REJECT
+- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+- DST-PORT,7895,REJECT
+- DST-PORT,7892,REJECT
+- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+- RULE-SET,proxy-classical,PROXY
+- RULE-SET,direct-classical,DIRECT
+- RULE-SET,block,BLOCK
+- RULE-SET,applications,DIRECT
+- RULE-SET,icloud,DIRECT
+- RULE-SET,apple,DIRECT
+- RULE-SET,github,GITHUB
+- RULE-SET,openai,OPENAI
+- RULE-SET,google,PROXY
+- RULE-SET,youtube,PROXY
+- RULE-SET,telegram,PROXY
+- RULE-SET,spotify,PROXY
+- RULE-SET,gfw,PROXY
+- GEOIP,LAN,DIRECT,no-resolve
+- GEOIP,CN,DIRECT
+- MATCH,FINAL
+
+rule-providers:
+  icloud:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/anaer/Sub@main/rules/classical/icloud.yaml
+    path: "./rule_provider/icloud.yaml"
+    interval: 86400
+    proxy: DIRECT
+  apple:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/anaer/Sub@main/rules/classical/apple.yaml
+    path: "./rule_provider/apple.yaml"
+    interval: 86400
+    proxy: DIRECT
+  gfw:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/anaer/Sub@main/rules/domain/gfw.yaml
+    path: "./rule_provider/gfw.yaml"
+    interval: 86400
+    proxy: DIRECT
+  youtube:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/anaer/Sub@main/rules/classical/youtube.yaml
+    path: "./rule_provider/youtube.yaml"
+    interval: 86400
+    proxy: DIRECT
+  google:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/anaer/Sub@main/rules/classical/google.yaml
+    path: "./rule_provider/google.yaml"
+    interval: 86400
+    proxy: DIRECT
+  github:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/anaer/Sub@main/rules/classical/github.yaml
+    path: "./rule_provider/github.yaml"
+    interval: 86400
+    proxy: DIRECT
+  openai:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/anaer/Sub@main/rules/classical/openai.yaml
+    path: "./rule_provider/openai.yaml"
+    interval: 86400
+    proxy: DIRECT
+  telegram:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/anaer/Sub@main/rules/classical/telegram.yaml
+    path: "./rule_provider/telegram.yaml"
+    interval: 86400
+    proxy: DIRECT
+  spotify:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/anaer/Sub@main/rules/classical/spotify.yaml
+    path: "./rule_provider/spotify.yaml"
+    interval: 86400
+    proxy: DIRECT
+  applications:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/anaer/Sub@main/rules/classical/applications.yaml
+    path: "./rule_provider/applications.yaml"
+    interval: 86400
+    proxy: DIRECT
+  block:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/anaer/Sub@main/rules/classical/block.yaml
+    path: "./rule_provider/block.yaml"
+    interval: 86400
+    proxy: DIRECT
+  direct-classical:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/anaer/Sub@main/rules/classical/direct.yaml
+    path: "./rule_provider/direct.yaml"
+    interval: 86400
+    proxy: DIRECT
+  proxy-classical:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/anaer/Sub@main/rules/classical/proxy.yaml
+    path: "./rule_provider/proxy.yaml"
+    interval: 86400
+    proxy: DIRECT
+redir-port: 7892
+tproxy-port: 7895
+port: 7890
+socks-port: 7891
+secret: xV7TOpIV
+bind-address: "*"
+external-ui: "/usr/share/openclash/ui"
+authentication:
+- Clash:nGqtRJ0H
